@@ -4,6 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// Load the secrets in the .env module
+require('dotenv').config();
+// Connect to our database (line of code must be after the above .env)
+require('./config/database');
+
 var indexRouter = require('./routes/index');
 var flightsRouter = require('./routes/flights');
 
