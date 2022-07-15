@@ -1,13 +1,49 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('https://i.imgur.com/Y9Wzycr.png');
 }
 
 a {
   color: #00B7FF;
 }
 
+h1, h2, label {
+  color: whitesmoke
+}
+
 table {
   text-align: center;
   border-spacing: 15px;
+  background-color: lightgrey;
+  border-radius: 6px;
+  opacity: .8
+}
+
+a {
+  color: whitesmoke;
+}
+
+a:link { 
+  text-decoration: none; 
+}
+
+
+a:visited { 
+  text-decoration: none; 
+}
+
+
+a:hover { 
+  text-decoration: underline; 
+}
+
+
+a:active { 
+  text-decoration: none; 
+}
+
+nav {
+  background-color: #7A858A ;
+  text-align: center;
 }
