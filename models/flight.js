@@ -9,7 +9,7 @@ const flightSchema = new Schema ({
     },
     airport: {
         type: String,
-        enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN', ''],
+        // enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN', ''],
         default: 'DEN'
     },
     flightNo: {
@@ -21,9 +21,9 @@ const flightSchema = new Schema ({
     departs: {
         type: Date,
         default: function() {
-            let departsDate = `${new Date().getFullYear() + 1}-${(new Date().getMonth() + 1).toString().padStart(2, '0')}`;
-            departsDate += `-${new Date().getDate().toString().padStart(2, '0')}`;
-            return departsDate;
+            let d = `${new Date().getFullYear() + 1}-${(new Date().getMonth() + 1).toString().padStart(2, '0')}`;
+            d += `-${new Date().getDate().toString().padStart(2, '0')} ${new Date().toLocaleTimeString('en-US', {hour12: true}).slice(0, 5)}`;
+            return d;
         }
     }
 });
