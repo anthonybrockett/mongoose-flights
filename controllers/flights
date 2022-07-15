@@ -28,8 +28,6 @@ function create(req, res) {
 }
 
 function index(req, res) {
-    // let curDate = new Date();
-    // curDate < flight.departs ? departed = true : departed = false;
     Flight.find({}, function(err, flights){
         res.render('flights/index', { flights })
     })

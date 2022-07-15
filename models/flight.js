@@ -24,9 +24,12 @@ const flightSchema = new Schema ({
             return `${new Date().getFullYear() + 1}-${(new Date().getMonth() + 1).toString().padStart(2, '0')}-${new Date().getDate().toString().padStart(2, '0')} ${new Date().toTimeString().slice(0, 5)}`;      
         }
     },
-    // departed: {
-    //     type: Boolean
-    // }
+    curDate: {
+        type: Date,
+        default: function() {
+            return `${new Date().getFullYear()}-${(new Date().getMonth() + 1).toString().padStart(2, '0')}-${new Date().getDate().toString().padStart(2, '0')} ${new Date().toTimeString().slice(0, 5)}`;      
+        }
+    }
 });
 
 module.exports = mongoose.model('Flight', flightSchema);

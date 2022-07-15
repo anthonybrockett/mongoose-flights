@@ -8,17 +8,15 @@
             <th>Airport</th>
             <th>Flight Number</th>
             <th>Departure Date</th>
-            <!-- <th>Status</th> -->
         </tr>
     </thead>
     <tbody>
         <% flights.forEach(function(f) { %>
-            <tr>
+            <tr <%= (f.departs < f.curDate) ? "style=color:red" : "style=color:black" %> >
                 <td><%= f.airline %></td>
                 <td><%= f.airport %></td>
                 <td><%= f.flightNo %></td>
-                <td><%= f.departs %></td>
-                <!-- <td><%= f.departed %></td> -->
+                <td><%= f.departs.toLocaleDateString() %>&nbsp;<%= f.departs.toLocaleTimeString() %>&nbsp;<%= Intl.DateTimeFormat().resolvedOptions().timeZone %></td>
             </tr>
         <% }) %>
         </tbody>
