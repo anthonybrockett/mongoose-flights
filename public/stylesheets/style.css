@@ -22,6 +22,10 @@ h1, h2, label {
   width: 7em;
 }
 
+#detailsH1 {
+  width: 8em;
+}
+
 #newH2 {
   width: 12em;
 }

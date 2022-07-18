@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h1>Flight Details</h1>
+<h1 id="detailsH1">Flight Details</h1>
 <section id='details'>
     <div>Airline: <%= flight.airline %></div>
     <div>Airport: <%= flight.airport %></div>
@@ -8,5 +8,40 @@
     <div>Departure: <%= flight.departs.toLocaleDateString() %>&nbsp;<%= flight.departs.toLocaleTimeString() %>&nbsp;<%= Intl.DateTimeFormat().resolvedOptions().timeZone %></div> 
 </section>
 
+<br><br><h2>Destinations</h2>
+<form id='destination' method="POST" action="/flights/<%= flight._id %>/destinations">
+    <label>Airport: </label>
+    <select name="airport">
+        <option value="AUS">AUS</option>
+        <option value="DFW">DFW</option>
+        <option value="DEN" selected>DEN</option>
+        <option value="LAX">LAX</option>
+        <option value="SAN">SAN</option>
+    </select><br>
+    <label>Arrival: </label> 
+        <input type="datetime-local" name="arrival"><br>
+    <input type="submit" value="Add Destination">
+</form>
+
+<% if (flight.destinations.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Arrival</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% flight.destinations.forEach(function(f) { %>
+                <tr>
+                    <td><%= f.airport %></td>
+                    <td><%= f.arrival.toLocaleDateString() %>&nbsp;<%= f.arrival.toLocaleTimeString() %>&nbsp;<%= Intl.DateTimeFormat().resolvedOptions().timeZone %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <h4>No Destinations</h4>
+<% } %>
 
 <%- include('../partials/footer') %>
