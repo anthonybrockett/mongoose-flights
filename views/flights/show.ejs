@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<h1>Flight Details</h1>
+<section id='details'>
+    <div>Airline: <%= flight.airline %></div>
+    <div>Airport: <%= flight.airport %></div>
+    <div>Flight Number: <%= flight.flightNo %></div>
+    <div>Departure: <%= flight.departs.toLocaleDateString() %>&nbsp;<%= flight.departs.toLocaleTimeString() %>&nbsp;<%= Intl.DateTimeFormat().resolvedOptions().timeZone %></div> 
+</section>
+
+
+<%- include('../partials/footer') %>

@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h1>Flight List</h1>
+<h1 id="indexH1">Flight List</h1>
 <table>
     <thead>
         <tr>
@@ -17,6 +17,7 @@
                 <td><%= f.airport %></td>
                 <td><%= f.flightNo %></td>
                 <td><%= f.departs.toLocaleDateString() %>&nbsp;<%= f.departs.toLocaleTimeString() %>&nbsp;<%= Intl.DateTimeFormat().resolvedOptions().timeZone %></td>
+                <td><a href="/flights/<%= f._id %>">Details</a></td>
             </tr>
         <% }) %>
         </tbody>
