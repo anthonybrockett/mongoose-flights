@@ -7,22 +7,27 @@ module.exports = {
 }
 
 function create(req, res) {
-    Ticket.create(req.body, function(err, ticket) {
-        ticket.flight = req.params.id;
-        ticket.save(function(err) {
-            res.redirect(`/flights/${req.params.id}`);
+    Flight.findById(req.params.id, function(err, flight) {
+        let flightId = req.params.id;
+        Ticket.create(req.body, function(err, ticket) {
+            ticket.flight = flightId;
+            ticket.save(function(err) {
+                res.redirect(`/flights/${ticket.flight}`);
+            })
         })
-        console.log(ticket)
     })
 }
 
+
 function newTicket(req, res) {
-    Ticket.find({})
-    //Sort tickets by their seat
-    .sort('seat')
-    .exec(function (err, tickets) {
-      res.render(`tickets/new`,
-        { tickets }
-        );
-    });
-}
+    Flight.findById(req.params.id, function(err, flight) {
+        Ticket.find({})
+        //Sort tickets by their seat
+        .sort('seat')
+        .exec(function (err, tickets) {
+        res.render(`tickets/new`,
+            { tickets, flight }
+            );
+        });
+    })
+}    

@@ -10,7 +10,6 @@ function create(req, res) {
         flight.destinations.sort(function(destA, destB) {
             return destA.arrival - destB.arrival;
         });
-        console.log(flight.destinations);
         flight.save(function(err) {
             res.redirect(`/flights/${flight.id}`);
         });

@@ -30,6 +30,14 @@ h1, h2, label {
   width: 12em;
 }
 
+#ticketH2 {
+  width: 5em;
+}
+
+#destH2 {
+  width: 7em;
+}
+
 table {
   text-align: center;
   border-spacing: 15px;
