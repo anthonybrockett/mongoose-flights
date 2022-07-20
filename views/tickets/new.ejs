@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<h2 id="newH2">Enter a New Ticket</h2>
+
+<section id="badge-container">
+    <% tickets.forEach(function(t) { %>
+      <article class="badge"><%= t.seat %> - $<%= t.price %> - <%= t.flight %></article>
+      <% }) %>
+    </section>
+
+    <form method="POST" action="/flights">
+        <label>Seat: </label>
+        <input name="seat" required pattern="[A-F][1-9]\d?"><br>
+        <label>Price: </label> 
+        <input type="number" min=0 name="price"><br>
+        <input type="submit" value="Add Ticket">
+    </form>
+
+<%- include('../partials/footer') %>
